@@ -7,6 +7,11 @@ import { faPaperclip, faGlobe, faGlobeAmericas, faLock, faLockOpen, faEnvelope }
 import { faWindowClose as faWindowCloseRegular } from "@fortawesome/free-regular-svg-icons";
 import { ContextMenuService, ContextMenuComponent } from 'ngx-contextmenu';
 
+import { ElectronService } from 'ngx-electron';
+import { ipcRenderer, webFrame, remote } from 'electron';
+import * as childProcess from 'child_process';
+import * as fs from 'fs';
+
 import { MastodonService, VisibilityEnum } from '../../services/mastodon.service';
 import { Status, Attachment } from '../../services/models/mastodon.interfaces';
 import { ToolsService } from '../../services/tools.service';
@@ -147,6 +152,7 @@ export class CreateStatusComponent implements OnInit, OnDestroy {
     private selectedAccount: AccountInfo;
 
     constructor(
+        private readonly electronService: ElectronService,
         private readonly contextMenuService: ContextMenuService,
         private readonly store: Store,
         private readonly notificationService: NotificationService,
@@ -157,9 +163,23 @@ export class CreateStatusComponent implements OnInit, OnDestroy {
         private readonly overlay: Overlay,
         public viewContainerRef: ViewContainerRef) {
         this.accounts$ = this.store.select(state => state.registeredaccounts.accounts);
+
+        this.webFrame = (<any>window).require('electron').webFrame;
     }
 
+    webFrame: typeof webFrame;
+
     ngOnInit() {
+
+        this.webFrame.setSpellCheckProvider('en-US', {
+            spellCheck(words, callback) {
+                setTimeout(() => {
+                    console.warn(words);
+                    callback([]);
+                }, 0)
+            }
+        });
+
         this.accountSub = this.accounts$.subscribe((accounts: AccountInfo[]) => {
             this.accountChanged(accounts);
         });

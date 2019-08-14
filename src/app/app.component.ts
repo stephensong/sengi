@@ -2,7 +2,15 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Observable, Subject } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
 import { Select } from '@ngxs/store';
+// import { webFrame } from 'electron';
 // import { ElectronService } from 'ngx-electron';
+// // import { spellChecker } from 'spellchecker';
+// import { SpellChecker } from 'simple-spellchecker';
+
+// import { ipcRenderer, webFrame, remote } from 'electron';
+// import * as childProcess from 'child_process';
+// import * as fs from 'fs';
+
 
 import { NavigationService, LeftPanelType, OpenLeftPanelEvent } from './services/navigation.service';
 import { StreamElement } from './states/streams.state';
@@ -30,6 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
     @Select(state => state.streamsstatemodel.streams) streamElements$: Observable<StreamElement[]>;
 
     constructor(
+        private readonly electronService: ElectronService,
         private readonly toolsService: ToolsService,
         private readonly mediaService: MediaService,
         private readonly navigationService: NavigationService) {
@@ -65,9 +74,33 @@ export class AppComponent implements OnInit, OnDestroy {
             .pipe(
                 debounceTime(1500)
             )
-            .subscribe(() => {                
+            .subscribe(() => {
                 this.drag = false;
             })
+
+        this.electronService.webFrame.setSpellCheckProvider('en-US', {
+            spellCheck(words, callback) {
+                setTimeout(() => {
+                    console.warn(words);
+                    callback([]);
+
+                    // const spellchecker = require('spellchecker');
+                    //  const s = new spellChecker();
+                    // const misspelled = words.filter(x => s.isMisspelled(x));
+                    // callback(misspelled);
+
+                    // SpellChecker.getDictionary("fr-FR", function(err, dictionary) {
+                    //     if(!err) {
+                    //         var misspelled = ! dictionary.spellCheck('maisonn');
+                    //         if(misspelled) {
+                    //             var suggestions = dictionary.getSuggestions('maisonn');
+                    //             callback(suggestions);
+                    //         }
+                    //     }
+                    // });    
+                }, 0)
+            }
+        });
     }
 
     ngOnDestroy(): void {

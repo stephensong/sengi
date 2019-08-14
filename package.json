@@ -62,7 +62,7 @@
         "@types/jasminewd2": "~2.0.3",
         "@types/node": "~8.9.4",
         "codelyzer": "~4.2.1",
-        "electron": "^4.0.6",
+        "electron": "^6.0.2",
         "electron-builder": "^20.39.0",
         "jasmine-core": "~2.99.1",
         "jasmine-spec-reporter": "~4.2.1",
@@ -72,7 +72,10 @@
         "karma-jasmine": "~1.1.0",
         "karma-jasmine-html-reporter": "^0.2.2",
         "karma-junit-reporter": "^1.2.0",
+        "ngx-electron": "^2.1.1",
         "protractor": "~5.3.0",
+        "simple-spellchecker": "^0.9.9",
+        "spellchecker": "^3.7.0",
         "ts-node": "~5.0.1",
         "tslint": "~5.9.1",
         "typescript": "~3.2.4"
@@ -129,7 +132,9 @@
             "category": "Network"
         },
         "snap": {
-            "publish": ["github"]
+            "publish": [
+                "github"
+            ]
         }
     }
 }
