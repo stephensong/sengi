@@ -132,7 +132,7 @@ export class ThreadComponent extends BrowseBase {
         if (this.responseSubscription) this.responseSubscription.unsubscribe();
     }
 
-    @ViewChild('statusstream') public statustream: ElementRef;
+    @ViewChild('statusstream', { static: true }) public statustream: ElementRef;
     goToTop(): any {
         const stream = this.statustream.nativeElement as HTMLElement;
         setTimeout(() => {

@@ -20,7 +20,7 @@ export class CardComponent implements OnInit {
     faExternalLinkAlt = faExternalLinkAlt;
 
     @Input() card: Card;
-    @ViewChild('video') myVideo: ElementRef;
+    @ViewChild('video', { static: false }) myVideo: ElementRef;
 
     host: string;
     html: SafeHtml;

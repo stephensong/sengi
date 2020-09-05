@@ -33,8 +33,8 @@ export class StreamComponent implements OnInit {
 
     private _streamElement: StreamElement;
 
-    @ViewChild(StreamStatusesComponent) private streamStatusesComponent: StreamStatusesComponent;
-    @ViewChild(StreamNotificationsComponent) private streamNotificationsComponent: StreamNotificationsComponent;
+    @ViewChild(StreamStatusesComponent, { static: false }) private streamStatusesComponent: StreamStatusesComponent;
+    @ViewChild(StreamNotificationsComponent, { static: false }) private streamNotificationsComponent: StreamNotificationsComponent;
 
     @Input('streamElement')
     set streamElement(stream: StreamElement) {

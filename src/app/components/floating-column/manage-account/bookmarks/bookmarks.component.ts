@@ -28,7 +28,7 @@ export class BookmarksComponent extends TimelineBase {
         return this._accountWrapper;
     }
 
-    @ViewChild('statusstream') public statustream: ElementRef;
+    @ViewChild('statusstream', { static: true }) public statustream: ElementRef;
 
     constructor(
         protected readonly toolsService: ToolsService,

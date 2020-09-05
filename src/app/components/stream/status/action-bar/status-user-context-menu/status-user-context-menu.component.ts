@@ -32,7 +32,7 @@ export class StatusUserContextMenuComponent implements OnInit, OnDestroy {
 
     @Output() browseThreadEvent = new EventEmitter<OpenThreadEvent>();
 
-    @ViewChild(ContextMenuComponent) public contextMenu: ContextMenuComponent;
+    @ViewChild(ContextMenuComponent, { static: true }) public contextMenu: ContextMenuComponent;
 
     private accounts$: Observable<AccountInfo[]>;
     private accountSub: Subscription;

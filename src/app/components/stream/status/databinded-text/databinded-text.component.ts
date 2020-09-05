@@ -17,7 +17,7 @@ export class DatabindedTextComponent implements OnInit {
     processedText: string;
     isCollapsed: boolean = false;
 
-    @ViewChild('content') contentElement: ElementRef;
+    @ViewChild('content', { static: true }) contentElement: ElementRef;
 
     @Output() accountSelected = new EventEmitter<string>();
     @Output() hashtagSelected = new EventEmitter<string>();

@@ -6,9 +6,9 @@
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
+    // "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "target": "es2015",
     "downlevelIteration": true,
     "typeRoots": [
       "node_modules/@types"
@@ -17,7 +17,7 @@
       "es2017",
       "dom"
     ],
-    "module": "es2015",
+    "module": "esnext",
     "baseUrl": "./"
   }
 }

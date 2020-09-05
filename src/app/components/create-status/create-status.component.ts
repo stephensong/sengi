@@ -145,12 +145,12 @@ export class CreateStatusComponent implements OnInit, OnDestroy {
 
     @Input() statusReplyingToWrapper: StatusWrapper;
     @Output() onClose = new EventEmitter();
-    @ViewChild('reply') replyElement: ElementRef;
-    @ViewChild('fileInput') fileInputElement: ElementRef;
-    @ViewChild('footer') footerElement: ElementRef;
-    @ViewChild(ContextMenuComponent) public contextMenu: ContextMenuComponent;
-    @ViewChild(PollEditorComponent) pollEditor: PollEditorComponent;
-    @ViewChild(StatusSchedulerComponent) statusScheduler: StatusSchedulerComponent;
+    @ViewChild('reply', { static: true }) replyElement: ElementRef;
+    @ViewChild('fileInput', { static: true }) fileInputElement: ElementRef;
+    @ViewChild('footer', { static: true }) footerElement: ElementRef;
+    @ViewChild(ContextMenuComponent, { static: true }) public contextMenu: ContextMenuComponent;
+    @ViewChild(PollEditorComponent, { static: false }) pollEditor: PollEditorComponent;
+    @ViewChild(StatusSchedulerComponent, { static: false }) statusScheduler: StatusSchedulerComponent;
 
     private _isDirectMention: boolean;
     @Input('isDirectMention')
@@ -852,7 +852,7 @@ export class CreateStatusComponent implements OnInit, OnDestroy {
     }
 
     //https://stackblitz.com/edit/overlay-demo
-    @ViewChild('emojiButton') emojiButtonElement: ElementRef;
+    @ViewChild('emojiButton', { static: true }) emojiButtonElement: ElementRef;
     overlayRef: OverlayRef;
 
     public innerHeight: number;

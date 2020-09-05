@@ -126,11 +126,11 @@ export class ManageAccountComponent extends BrowseBase {
         }
     }
 
-    @ViewChild('bookmarks') bookmarksComp:BookmarksComponent;
-    @ViewChild('notifications') notificationsComp:NotificationsComponent;
-    @ViewChild('mentions') mentionsComp:MentionsComponent;
-    @ViewChild('dm') dmComp:DirectMessagesComponent;
-    @ViewChild('favorites') favoritesComp:FavoritesComponent;
+    @ViewChild('bookmarks', { static: false }) bookmarksComp:BookmarksComponent;
+    @ViewChild('notifications', { static: false }) notificationsComp:NotificationsComponent;
+    @ViewChild('mentions', { static: false }) mentionsComp:MentionsComponent;
+    @ViewChild('dm', { static: false }) dmComp:DirectMessagesComponent;
+    @ViewChild('favorites', { static: false }) favoritesComp:FavoritesComponent;
 
     loadSubPanel(subpanel: 'account' | 'notifications' | 'mentions' | 'dm' | 'favorites' | 'bookmarks'): boolean {
         if(this.subPanel === subpanel){

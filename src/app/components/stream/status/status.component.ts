@@ -46,7 +46,7 @@ export class StatusComponent implements OnInit {
     @Output() browseAccountEvent = new EventEmitter<string>();
     @Output() browseHashtagEvent = new EventEmitter<string>();
     @Output() browseThreadEvent = new EventEmitter<OpenThreadEvent>();
-    @ViewChild('appActionBar') appActionBar: ActionBarComponent;
+    @ViewChild('appActionBar', { static: false }) appActionBar: ActionBarComponent;
 
     @Input() isThreadDisplay: boolean;
 

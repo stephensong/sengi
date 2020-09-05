@@ -51,7 +51,7 @@ export class MediaViewerComponent implements OnInit, OnDestroy {
     }
 
     @Output() closeSubject = new Subject<boolean>();
-    @ViewChild('video') myVideo: ElementRef;
+    @ViewChild('video', { static: false }) myVideo: ElementRef;
 
     @HostListener('document:keydown', ['$event'])
     handleKeyboardEvent(event: KeyboardEvent) {

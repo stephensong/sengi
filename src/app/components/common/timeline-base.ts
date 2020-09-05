@@ -39,7 +39,7 @@ export abstract class TimelineBase extends BrowseBase {
 
     @Input() userLocked = true;
 
-    @ViewChild('statusstream') public statustream: ElementRef;
+    @ViewChild('statusstream', { static: true }) public statustream: ElementRef;
 
     constructor(
         protected readonly toolsService: ToolsService,

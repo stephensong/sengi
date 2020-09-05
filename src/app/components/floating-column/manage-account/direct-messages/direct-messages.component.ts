@@ -38,7 +38,7 @@ export class DirectMessagesComponent extends BrowseBase {
         return this._account;
     }
 
-    @ViewChild('statusstream') public statustream: ElementRef;
+    @ViewChild('statusstream', { static: true }) public statustream: ElementRef;
 
     constructor(
         private readonly toolsService: ToolsService,

@@ -1,7 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpModule } from "@angular/http";
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
@@ -161,7 +160,6 @@ const routes: Routes = [
         FontAwesomeModule,
         BrowserModule,
         BrowserAnimationsModule,
-        HttpModule,
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,

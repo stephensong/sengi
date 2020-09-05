@@ -31,7 +31,7 @@ export class HashtagComponent implements OnInit, OnDestroy {
     }
    
 
-    @ViewChild('appStreamStatuses') appStreamStatuses: StreamStatusesComponent;
+    @ViewChild('appStreamStatuses', { static: false }) appStreamStatuses: StreamStatusesComponent;
 
     goToTopSubject: Subject<void> = new Subject<void>();
 

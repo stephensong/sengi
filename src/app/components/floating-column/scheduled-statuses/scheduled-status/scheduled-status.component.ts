@@ -18,7 +18,7 @@ export class ScheduledStatusComponent implements OnInit {
     rescheduling: boolean = false;
     isLoading: boolean = false;
 
-    @ViewChild(StatusSchedulerComponent) statusScheduler: StatusSchedulerComponent;
+    @ViewChild(StatusSchedulerComponent, { static: false }) statusScheduler: StatusSchedulerComponent;
 
     avatar: string;
     @Input() account: AccountInfo;

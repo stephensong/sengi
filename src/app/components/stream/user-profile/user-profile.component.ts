@@ -62,8 +62,8 @@ export class UserProfileComponent extends BrowseBase {
     private refreshSubscription: Subscription;
     private goToTopSubscription: Subscription;
 
-    @ViewChild('statusstream') public statustream: ElementRef;
-    @ViewChild('profilestatuses') public profilestatuses: ElementRef;
+    @ViewChild('statusstream', { static: true }) public statustream: ElementRef;
+    @ViewChild('profilestatuses', { static: false }) public profilestatuses: ElementRef;
 
     @Input() refreshEventEmitter: EventEmitter<any>;
     @Input() goToTopEventEmitter: EventEmitter<any>;

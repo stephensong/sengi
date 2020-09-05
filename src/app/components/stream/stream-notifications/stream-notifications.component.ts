@@ -27,8 +27,8 @@ export class StreamNotificationsComponent extends BrowseBase {
     @Input() streamElement: StreamElement;
     @Input() goToTop: Observable<void>;
 
-    @ViewChild('notificationstream') public notificationstream: ElementRef;
-    @ViewChild('mentionstream') public mentionstream: ElementRef;
+    @ViewChild('notificationstream', { static: true }) public notificationstream: ElementRef;
+    @ViewChild('mentionstream', { static: true }) public mentionstream: ElementRef;
 
     private nbStatusPerIteration: number = 20;
     private account: AccountInfo;

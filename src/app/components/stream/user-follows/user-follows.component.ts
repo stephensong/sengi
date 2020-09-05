@@ -45,7 +45,7 @@ export class UserFollowsComponent implements OnInit, OnDestroy {
 
     @Output() browseAccountEvent = new EventEmitter<string>();
 
-    @ViewChild('accountslist') public accountslist: ElementRef;
+    @ViewChild('accountslist', { static: true }) public accountslist: ElementRef;
 
     private refreshSubscription: Subscription;
     private goToTopSubscription: Subscription;

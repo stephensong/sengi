@@ -37,7 +37,7 @@ export class AttachementsComponent implements OnInit {
         return this._attachments;
     }
 
-    @ViewChild('videoPlayer') videoplayer: ElementRef;
+    @ViewChild('videoPlayer', { static: false }) videoplayer: ElementRef;
 
     constructor(private readonly navigationService: NavigationService) { }
 
